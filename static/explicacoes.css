@@ -102,6 +102,18 @@
             background-color: #0ea5e9;
         }
 
+        footer {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 3em;
+            color: #5c5c5c;
+        }
+
+        img {
+            margin-bottom: 15px;
+        }
+
         /* RESPONSIVIDADE */
         @media (max-width: 768px) {
             body {
@@ -144,6 +156,11 @@
             .paginas a {
                 font-size: 20px;
             }
+
+            footer span {
+                width: max-content;
+                font-size: 12px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -175,6 +192,11 @@
 
             .paginas a {
                 font-size: 20px;
+            }
+
+            footer span {
+                width: max-content;
+                font-size: 12px;
             }
         }
 
@@ -211,5 +233,10 @@
 
             .paginas a {
                 font-size: 20px;
+            }
+
+            footer span {
+                width: max-content;
+                font-size: 12px;
             }
         }

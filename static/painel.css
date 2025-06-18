@@ -188,6 +188,18 @@ button:hover {
     margin-right: 5px;
 }
 
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3em;
+    color: #5c5c5c;
+}
+
+img {
+    margin-bottom: 15px;
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
     th, td {
@@ -231,6 +243,10 @@ button:hover {
     #filtros input[type="date"] {
         width: 100%;
         font-size: 14px;
+    }
+
+    span {
+        width: max-content;
     }
 }
 
@@ -277,6 +293,10 @@ button:hover {
     #filtros input[type="date"] {
         font-size: 13px;
     }
+
+    span {
+        width: max-content;
+    }
 }
 
 @media (max-width: 360px) {
@@ -309,5 +329,9 @@ button:hover {
     #filtros select,
     #filtros input[type="date"] {
         font-size: 12px;
+    }
+
+    span {
+        width: max-content;
     }
 }

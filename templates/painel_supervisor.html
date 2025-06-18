@@ -65,33 +65,33 @@
             </tbody>
             
             <tfoot>
-            <tr>
-                <td><strong>Consolidado</strong></td>
-                <td class="{{ 'bg-vermelho' if medias['Devolucao_Porcentagem'] != '-' and medias['Devolucao_Porcentagem']|float > 1.7 else 'bg-verde' }}">
-                    {{ medias['Devolucao_Porcentagem'] if medias['Devolucao_Porcentagem'] != '-' else '-' }}{% if medias['Devolucao_Porcentagem'] != '-' %}%{% endif %}
-                </td>
-                <td class="{{ 'bg-vermelho' if medias['Refugo_Porcentagem'] != '-' and medias['Refugo_Porcentagem']|float > 1.5 else 'bg-verde' }}">
-                    {{ medias['Refugo_Porcentagem'] if medias['Refugo_Porcentagem'] != '-' else '-' }}{% if medias['Refugo_Porcentagem'] != '-' %}%{% endif %}
-                </td>
-                <td class="{{ 'bg-vermelho' if medias.Reposicao_Valor|float > 360 else 'bg-verde' }}">
-                    R${{ medias.Reposicao_Valor }}
-                </td>
-                <td class="{{ 'bg-vermelho' if medias.Rating|float < 4.98 else 'bg-verde' }}">
-                    {{ medias.Rating }}
-                </td>
-                <td class="{{ 'bg-vermelho' if medias.Dispersao_KM|float > 10 else 'bg-verde' }}">
-                    {{ medias.Dispersao_KM }}%
-                </td>
-            </tr>
-            <tr id="metas">
-                <td><strong>Metas</strong></td>
-                <td>1.70%</td>
-                <td>1.5</td>
-                <td>R$360,00</td>
-                <td>4.98</td>
-                <td>10%</td>
-            </tr>
-        </tfoot>
+                <tr>
+                    <td><strong>Consolidado</strong></td>
+                    <td class="{{ 'bg-vermelho' if medias['Devolucao_Porcentagem'] != '-' and medias['Devolucao_Porcentagem']|float > 1.7 else 'bg-verde' }}">
+                        {{ medias['Devolucao_Porcentagem'] if medias['Devolucao_Porcentagem'] != '-' else '-' }}{% if medias['Devolucao_Porcentagem'] != '-' %}%{% endif %}
+                    </td>
+                    <td class="{{ 'bg-vermelho' if medias['Refugo_Porcentagem'] != '-' and medias['Refugo_Porcentagem']|float > 1.5 else 'bg-verde' }}">
+                        {{ medias['Refugo_Porcentagem'] if medias['Refugo_Porcentagem'] != '-' else '-' }}{% if medias['Refugo_Porcentagem'] != '-' %}%{% endif %}
+                    </td>
+                    <td class="{{ 'bg-vermelho' if medias.Reposicao_Valor|float > 360 else 'bg-verde' }}">
+                        R${{ medias.Reposicao_Valor }}
+                    </td>
+                    <td class="{{ 'bg-vermelho' if medias.Rating|float < 4.98 else 'bg-verde' }}">
+                        {{ medias.Rating }}
+                    </td>
+                    <td class="{{ 'bg-vermelho' if medias.Dispersao_KM|float > 10 else 'bg-verde' }}">
+                        {{ medias.Dispersao_KM }}%
+                    </td>
+                </tr>
+                <tr id="metas">
+                    <td><strong>Metas</strong></td>
+                    <td>1.70%</td>
+                    <td>1.5</td>
+                    <td>R$360,00</td>
+                    <td>4.98</td>
+                    <td>10%</td>
+                </tr>
+            </tfoot>
 
         </table>
         <div>
