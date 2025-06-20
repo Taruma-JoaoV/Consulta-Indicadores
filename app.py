@@ -322,7 +322,7 @@ def painel_supervisor():
         'Devolucao_Porcentagem': media_devolucao_porcentagem,
         'Dispersao_KM': media_dispersao_km,
         'Rating': media_rating,
-        'Reposicao_Valor': f"{soma_reposicao:.2f}".replace('.', ','),
+        'Reposicao_Valor': f"{soma_reposicao:.2f}".replace(',', '.'),
         'Refugo_Porcentagem': media_refugo
     }
 
