@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Helvetica;
+    background: #0b0f17;
+}
+
+#links {
+    background-color: #1e242f;
+}
+
+#links a{
+    background: #0066cc;
+}
+
+p{
+    color: white;
+}

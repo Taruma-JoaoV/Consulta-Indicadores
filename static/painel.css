@@ -169,6 +169,10 @@ button:hover {
     background-color: rgb(63, 180, 33);
 }
 
+#menu {
+    background-color: #3283a1;
+}
+
 #filtros {
     background-color: #111;
     border: 1px solid #444;
@@ -202,9 +206,14 @@ img {
 
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
-    th, td {
+    td {
         font-size: 13px;
         padding: 8px;
+    }
+
+    th {
+        font-size: 12px;
+        padding: 8px 0;
     }
 
     button {
@@ -263,9 +272,14 @@ img {
         font-size: 12px;
     }
 
-    th, td {
+    td {
         font-size: 12px;
-        padding: 6px;
+        padding: 6px 0;
+    }
+
+    th {
+        font-size: 12px;
+        padding: 8px 0;
     }
 
     .links {

@@ -11,6 +11,7 @@
     <div class="topo">
         <h1>Bem-vindo ao Painel de Indicadores</h1>
         <div class="links-wrapper">
+            <a href="{{ url_for('menu') }}" class="links" id="menu">Menu Principal</a>
             <a href="{{ url_for('explicacoes') }}" class="links" id="explicacoes">Explicações</a>
             <a href="{{ url_for('logout') }}" class="links" id="sair">Sair</a>
         </div>
@@ -43,11 +44,11 @@
         <thead>
             <tr>
                 <th>Data</th>
-                <th>% Devolução (PDV)</th>
-                <th>Refugo (%)</th>
+                <th>Devolução</th>
+                <th>Refugo</th>
                 <th>Reposição</th>
                 <th>Rating</th>
-                <th>Dispersão (KM)</th>
+                <th>Dispersão</th>
             </tr>
         </thead>
         <tbody>
@@ -85,7 +86,7 @@
                 <td><strong>Metas</strong></td>
                 <td>1.70%</td>
                 <td>1.5</td>
-                <td>R$360,00</td>
+                <td>R$360.00</td>
                 <td>4.98</td>
                 <td>10%</td>
             </tr>

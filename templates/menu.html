@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">
+</head>
+<body>
+    <p id="nome">🚚 {{ nome }} 👷</p>
+    <div id='options'>
+        <a href="{{ url_for('painel') }}">Indicadores</a>
+        <a href="{{ url_for('sonho') }}">Sonho</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3P2RV6dBeCKFod3-n1PhH2V-tIM_UUrQs6Ek69Ku_gCZTGQ/viewform?pli=1">Ouvidoria</a>
+        <a href="{{ url_for('logout') }}" class="links" id="sair">Sair</a>
+    </div>
+    <footer>
+        <img src="../static/logo.jpg" width="80" height="80">
+        <p>João Vitor Borato - Analista de Rota - Tarumã JF</p>
+        <p>joaov.taruma@gmail.com</p>
+    </footer>
+</body>
+</html>

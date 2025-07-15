@@ -15,7 +15,7 @@ def conectar_banco():
             user=user,
             password=password,
             database=database
-        )    
+        )
         return conexao
     except Exception as e:
         print("Erro ao conectar:", e)
@@ -38,12 +38,13 @@ def login():
 
             if motorista:
                 session['id_motorista'] = id_motorista
+                session['nome_motorista'] = motorista['Nome_Abrev'].title()
 
                 # Verifica se o ID é de supervisor
                 if id_motorista.upper() in ['001', '002']:
                     return redirect(url_for('painel_supervisor'))
                 else:
-                    return redirect(url_for('painel'))
+                    return redirect(url_for('menu'))
 
             else:
                 mensagem = 'ID ou Senha incorretos.'
@@ -70,6 +71,21 @@ def calcular_media(lista, chave, ignora_percentual=False):
     return round(media, 2)
 
 from flask import request
+
+
+@app.route('/menu')
+def menu():
+    if 'id_motorista' not in session:
+        return redirect(url_for('login'))
+
+    nome = session.get('nome_motorista')
+    return render_template('menu.html', nome=nome)
+
+
+@app.route('/sonho')
+def sonho():
+    if login:
+        return render_template('sonho.html')
 
 @app.route('/painel')
 def painel():
@@ -117,7 +133,8 @@ def painel():
                 data = linha['DataISO']
                 if data:
                     partes = data.split('-')
-                    data_formatada = f"{partes[2]}-{partes[1]}-{partes[0]}"
+                    ano = partes[0][2:]
+                    data_formatada = f"{partes[2]}/{partes[1]}/{ano}"
                 else:
                     data_formatada = "-"
 
@@ -176,7 +193,7 @@ def painel():
                                'Devolucao_Porcentagem': media_devolucao_porcentagem,
                                'Dispersao_KM': media_dispersao_km,
                                'Rating': media_rating,
-                               'Reposicao_Valor': f"{soma_reposicao:.2f}".replace('.', ','),
+                               'Reposicao_Valor': f"{soma_reposicao:.2f}".replace(',', '.'),
                                'Refugo_Porcentagem': media_refugo
                            },
                            prontuario=prontuario,
@@ -189,7 +206,6 @@ def painel_supervisor():
     conexao = conectar_banco()
     funcionarios = []
     dados_formatados = []
-    indicadores = None
     mensagem = ''
 
     # Inicializa as variáveis que serão usadas para manter estado no template
@@ -305,8 +321,6 @@ def painel_supervisor():
         cursor.close()
         conexao.close()
 
-    indicadores = dados_formatados
-
     # Calcular médias (sua função calcular_media deve estar disponível)
     media_devolucao_porcentagem = calcular_media(dados_formatados, 'Devolucao_Porcentagem', ignora_percentual=True)
     media_dispersao_km = calcular_media(dados_formatados, 'Dispersao_KM', ignora_percentual=True)
@@ -337,10 +351,6 @@ def painel_supervisor():
         prontuario=prontuario,
         observacoes=observacoes
     )
-
-
-
-
 
 
 @app.route('/explicacoes')
