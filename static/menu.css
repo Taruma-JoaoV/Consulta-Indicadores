@@ -47,15 +47,21 @@ body {
     font-size: 1.1rem;
     transition: background-color 0.3s;
 }
-
-#options a:nth-child(4){
-    background: #c61515;
-}
-
 #options a:hover {
     background-color: #3385ff;
 }
+
+#options a:nth-child(4){
+    background: #ff7b34;
+}
 #options a:nth-child(4):hover {
+    background-color: #ffab56;
+}
+
+#options a:nth-child(5){
+    background: #c61515;
+}
+#options a:nth-child(5):hover {
     background-color: #ff4040;
 }
 
