@@ -12,21 +12,21 @@ body {
 }
 
 img {
-    box-shadow: 0 0 10px rgba(3, 59, 116, 0.7);
+    box-shadow: 0 0 10px rgba(114, 116, 3, 0.7);
     border-radius: 18px;
 }
 
 h1, h2 {
     text-align: center;
-    color: #3399ff;
+    color: #ffeb33;
     margin-top: 20px;
 }
 
 .login-container {
-    background-color: #1e242f;
+    background-color: #2f2f1e;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 102, 204, 0.7);
+    box-shadow: 0 0 20px rgba(204, 201, 0, 0.7);
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
@@ -37,9 +37,9 @@ input[type="text"], input[type="password"] {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: 1px solid #3399ff;
+    border: 1px solid #fcff33;
     border-radius: 8px;
-    background-color: #2c3443;
+    background-color: #42432c;
     color: #cfd8dc;
     font-size: 1rem;
     transition: border-color 0.3s;
@@ -47,14 +47,14 @@ input[type="text"], input[type="password"] {
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
-    border-color: #66b3ff;
+    border-color: #f5ff66;
     outline: none;
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background: #0066cc;
+    background: #ccb800;
     border: none;
     color: white;
     font-weight: bold;
@@ -65,7 +65,7 @@ button {
 }
 
 button:hover {
-    background-color: #3385ff;
+    background-color: #fcff33;
 }
 
 footer{
@@ -77,14 +77,10 @@ footer{
 }
 
 .mensagem {
-    color: #ff6666;
+    color: #fff566;
     margin-top: 10px;
     text-align: center;
     font-weight: 600;
-}
-
-a{
-    display: none;
 }
 
 /* Responsividade para telas menores */
