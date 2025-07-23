@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5S</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cinco.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Uma dose de Bom Senso em tudo que a gente faz</h1>
+        <div id="links">
+            <a href="{{ url_for('menu') }}" id="menu">Menu Inicial</a>
+            <a href="{{ url_for('logout') }}" id="logout">Sair</a>
+        </div>
+    </header>
+    <main>
+        <img src="../static/cs.png" width="200" height="125">
+        <h1>O que é 5S?</h1>
+        <p>O 5S é uma metodologia de gestão originada no Japão, focada na organização, limpeza e padronização do ambiente de trabalho, com o objetivo de aumentar a produtividade e a eficiência.<br>
+            A metodologia é baseada em cinco princípios, cada um representado por uma palavra japonesa que começa com a letra "S".
+        </p>
+        <h1>Os cinco sensos do 5S</h1>
+        <h2>Seiri (Senso de Utilização)</h2>
+        <p>Consiste em separar o necessário do desnecessário, eliminando itens que não são utilizados ou que estão em excesso no ambiente de trabalho.
+        </p>
+
+        <h2>Seiton (Senso de Organização)</h2>
+        <p>Refere-se à organização de todos os itens necessários, de forma que sejam facilmente encontrados e acessados, evitando perdas de tempo e retrabalho.
+        </p>
+
+        <h2>Seiso (Senso de Limpeza)</h2>
+        <p>Envolve a limpeza do ambiente de trabalho, eliminando sujeira, resíduos e outros elementos que possam prejudicar a saúde e a segurança dos colaboradores.
+        </p>
+
+        <h2>Seiketsu (Senso de Padronização)</h2>
+        <p>Estabelece padrões de organização e limpeza para garantir a manutenção dos resultados obtidos com os três primeiros sensos, evitando que o ambiente volte a ficar desorganizado ou sujo.
+        </p>
+
+        <h2>Shitsuke (Senso de Disciplina)</h2>
+        <p>Refere-se à manutenção da disciplina e ao cumprimento das regras e padrões estabelecidos, garantindo que todos os colaboradores sigam os procedimentos corretos e colaborem para a melhoria contínua.
+        </p>
+    </main>
+    <footer>
+        <img src="../static/logo.jpg" width="80" height="80">
+        <p>João Vitor Borato - Analista de Rota - Tarumã JF</p>
+        <p>joaov.taruma@gmail.com</p>
+    </footer>
+
+</body>
+</html>

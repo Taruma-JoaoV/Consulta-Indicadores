@@ -8,14 +8,11 @@ app.secret_key = os.getenv('SECRET_KEY', 'chave-padrao-fraca')
 
 def conectar_banco():
     try:
-        conn_str = os.getenv('DATABASE_URL')
-        server, user, password, database = conn_str.split(';')
         conexao = pymssql.connect(
-            server=server,
-            user=user,
-            password=password,
-            database=database
-        )
+            server='servidor-indicadores.database.windows.net',
+            user='MasterJoaoVTaruma',
+            password='Analista.27666',
+            database='Indicadores_Funcionarios')
         return conexao
     except Exception as e:
         print("Erro ao conectar:", e)
@@ -79,11 +76,15 @@ def menu():
     nome = session.get('nome_motorista')
     return render_template('menu.html', nome=nome)
 
-
 @app.route('/sonho')
 def sonho():
     if login:
         return render_template('sonho.html')
+
+@app.route('/cinco')
+def cinco():
+    if login:
+        return render_template('cinco.html')
 
 @app.route('/painel')
 def painel():
@@ -386,8 +387,9 @@ def logout():
     session.clear()
     return redirect(url_for('login'))
 
+#####################################################################################################
 #################################   A J U D A N T E S   #############################################
-
+#####################################################################################################
 @app.route('/loginb', methods=['GET', 'POST'])
 def loginb():
     mensagem = ''
@@ -405,17 +407,26 @@ def loginb():
 
             if ajudante:
                 session['id_ajudante'] = id_ajudante
+                session['nome_ajudante'] = ajudante['Nome'].title()
 
                 # Verifica se o ID é de supervisor
                 if id_ajudante.upper() in ['123']:
                     return redirect(url_for('painel_coordenador'))
                 else:
-                    return redirect(url_for('painelb'))
+                    return redirect(url_for('menub'))
 
             else:
                 mensagem = 'ID ou Senha incorretos.'
 
     return render_template('loginb.html', mensagem=mensagem)
+
+@app.route('/menub')
+def menub():
+    if 'id_ajudante' not in session:
+        return redirect(url_for('loginb'))
+
+    nome = session.get('nome_ajudante')
+    return render_template('menub.html', nome=nome)
 
 @app.route('/painelb')
 def painelb():

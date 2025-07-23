@@ -51,17 +51,17 @@ body {
     background-color: #3385ff;
 }
 
-#options a:nth-child(4){
+#options a:nth-last-child(2){
     background: #ff7b34;
 }
-#options a:nth-child(4):hover {
+#options a:nth-last-child(2):hover {
     background-color: #ffab56;
 }
 
-#options a:nth-child(5){
+#options a:last-child{
     background: #c61515;
 }
-#options a:nth-child(5):hover {
+#options a:last-child:hover {
     background-color: #ff4040;
 }
 
