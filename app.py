@@ -618,5 +618,10 @@ def painel_coordenador():
                            media_valor=media_valor,
                            media_meta=media_meta)
 
+@app.route('/logoutb')
+def logoutb():
+    session.clear()
+    return redirect(url_for('loginb'))
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
