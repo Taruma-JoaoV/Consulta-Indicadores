@@ -1,3 +1,14 @@
+/* ===== Correção Global ===== */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ===== Estilos Base ===== */
 body {
     display: flex;
     flex-direction: column;
@@ -6,14 +17,129 @@ body {
     background: #0b0f17;
 }
 
-#links {
-    background-color: #1e242f;
+header {
+    display: flex;
+    width: 95%;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 10px;
 }
 
-#links a{
-    background: #0066cc;
-}
-
-p{
+a {
     color: white;
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.4s ease-in-out;
+}
+
+#menu {
+    background-color: #3283a1;
+}
+#menu:hover {
+    background-color: #34a1d1;
+}
+#logout {
+    background-color: #c50000;
+}
+#logout:hover {
+    background-color: #ff5e5e;
+}
+
+h1 {
+    color: #e9d00e;
+    margin: 0;
+}
+
+p {
+    color: #383838;
+}
+
+main {
+    border-radius: 12px;
+    box-shadow: 0 0 20px #e9d00e;
+    box-sizing: border-box;
+    padding: 2px;
+    margin: 20px 0px;
+    max-width: 95%; /* adiciona limite horizontal */
+}
+
+/* ===== Footer ===== */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #383838;
+    font-size: small;
+    margin-top: 2em;
+}
+footer img {
+    box-shadow: 0 0 10px #e9d00e;
+    border-radius: 18px;
+}
+
+/* ===== Media Queries ===== */
+
+/* Tablets (até 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    a {
+        font-size: 13px;
+        padding: 8px 16px;
+    }
+
+    main {
+        width: 90%;
+    }
+    main img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    }
+
+
+    p {
+        text-align: center;
+    }
+}
+
+/* Smartphones (até 480px) */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    a {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    main {
+        width: 95%;
+        padding: 10px;
+        margin: 30px 0;
+    }
+    main img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    }
+
+
+    p {
+        font-size: 14px;
+        text-align: center;
+    }
 }

@@ -7,10 +7,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='sonho.css') }}">
 </head>
 <body>
-    <div id='links'>
-        <a href="javascript:history.back()">Menu Principal</a>
-        <a href="{{ url_for('logout') }}" class="links" id="sair">Sair</a>
-    </div>
-    <p>Página em construção</p>
+    <header>
+        <h1>Sonho</h1>
+        <div id='links'>
+            <a id="menu" href="javascript:history.back()">Menu Principal</a>
+            <a id="logout" href="{{ url_for('logout') }}" class="links" id="sair">Sair</a>
+        </div>
+    </header>
+
+    <main>
+        <img src="../static/sonho.jpeg" width="1000" height="1000">
+    </main>
+
+    <footer>
+        <img src="../static/logo.jpg" width="80" height="80">
+        <p>João Vitor Borato - Analista de Rota - Tarumã JF</p>
+        <p>joaov.taruma@gmail.com</p>
+    </footer>
 </body>
 </html>

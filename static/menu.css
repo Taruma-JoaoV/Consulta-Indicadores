@@ -51,10 +51,13 @@ body {
     background-color: #3385ff;
 }
 
-#options a:nth-last-child(2){
+#options a:nth-last-child(2), #options a:nth-last-child(3){
     background: #ff7b34;
 }
 #options a:nth-last-child(2):hover {
+    background-color: #ffab56;
+}
+#options a:nth-last-child(3):hover {
     background-color: #ffab56;
 }
 
@@ -84,7 +87,7 @@ img {
     #options {
         width: 85%;
         margin-top: 0;
-        height: 45%;
+        height: max-content;
     }
     #options a {
         width: 80%;
