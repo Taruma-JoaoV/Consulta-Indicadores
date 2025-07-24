@@ -8,14 +8,22 @@
 </head>
 
 <body>
-    <a href="{{ url_for('loginb') }}" class="btn">SISTEMA AJUDANTES</a>
     <div class="login-container">
         <h2>Consulta de Indicadores</h2>
+
         <form method="POST">
-            <input type="text" name="id_motorista" placeholder="ID do Motorista" required>
-            <input type="password" name="cpf" placeholder="Senha" required>
+            <select name="tipo_usuario" required>
+                <option value="">Selecione seu setor</option>
+                <option value="motorista">Distribuição</option>
+                <option value="ajudante">Armazém</option>
+            </select>
+
+            <input type="text" name="id_usuario" placeholder="ID do Usuário" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+
             <button type="submit">Entrar</button>
         </form>
+
         {% if mensagem %}
             <p class="mensagem">{{ mensagem }}</p>
         {% endif %}

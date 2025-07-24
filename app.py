@@ -22,29 +22,47 @@ def conectar_banco():
 def login():
     mensagem = ''
     if request.method == 'POST':
-        id_motorista = request.form['id_motorista']
-        senha = request.form['cpf']
+        tipo_usuario = request.form['tipo_usuario']
+        id_usuario = request.form['id_usuario']
+        senha = request.form['senha']
 
         conexao = conectar_banco()
         if conexao:
             cursor = conexao.cursor(as_dict=True)
-            cursor.execute("SELECT * FROM Motoristas WHERE ID_Motorista = %s AND CPF = %s", (id_motorista, senha))
-            motorista = cursor.fetchone()
+
+            if tipo_usuario == 'motorista':
+                cursor.execute("SELECT * FROM Motoristas WHERE ID_Motorista = %s AND CPF = %s", (id_usuario, senha))
+                usuario = cursor.fetchone()
+                if usuario:
+                    session['id_motorista'] = id_usuario
+                    session['nome_motorista'] = usuario['Nome_Abrev'].title()
+
+                    cursor.close()
+                    conexao.close()
+
+                    if id_usuario.upper() in ['001', '002']:
+                        return redirect(url_for('painel_supervisor'))
+                    else:
+                        return redirect(url_for('menu'))
+
+            elif tipo_usuario == 'ajudante':
+                cursor.execute("SELECT * FROM Ajudantes WHERE ID = %s AND Senha = %s", (id_usuario, senha))
+                usuario = cursor.fetchone()
+                if usuario:
+                    session['id_ajudante'] = id_usuario
+                    session['nome_ajudante'] = usuario['Nome'].title()
+
+                    cursor.close()
+                    conexao.close()
+
+                    if id_usuario.upper() in ['123']:
+                        return redirect(url_for('painel_coordenador'))
+                    else:
+                        return redirect(url_for('menub'))
+
             cursor.close()
             conexao.close()
-
-            if motorista:
-                session['id_motorista'] = id_motorista
-                session['nome_motorista'] = motorista['Nome_Abrev'].title()
-
-                # Verifica se o ID é de supervisor
-                if id_motorista.upper() in ['001', '002']:
-                    return redirect(url_for('painel_supervisor'))
-                else:
-                    return redirect(url_for('menu'))
-
-            else:
-                mensagem = 'ID ou Senha incorretos.'
+            mensagem = 'ID ou Senha incorretos.'
 
     return render_template('login.html', mensagem=mensagem)
 
@@ -390,36 +408,35 @@ def logout():
 #####################################################################################################
 #################################   A J U D A N T E S   #############################################
 #####################################################################################################
-@app.route('/loginb', methods=['GET', 'POST'])
-def loginb():
-    mensagem = ''
-    if request.method == 'POST':
-        id_ajudante = request.form['id_ajudante']
-        senha = request.form['senha']
-
-        conexao = conectar_banco()
-        if conexao:
-            cursor = conexao.cursor(as_dict=True)
-            cursor.execute("SELECT * FROM Ajudantes WHERE ID = %s AND Senha = %s", (id_ajudante, senha))
-            ajudante = cursor.fetchone()
-            cursor.close()
-            conexao.close()
-
-            if ajudante:
-                session['id_ajudante'] = id_ajudante
-                session['nome_ajudante'] = ajudante['Nome'].title()
-
+#@app.route('/loginb', methods=['GET', 'POST'])
+#def loginb():
+#    mensagem = ''
+#    if request.method == 'POST':
+#        id_ajudante = request.form['id_ajudante']
+#        senha = request.form['senha']
+#
+#        conexao = conectar_banco()
+#        if conexao:
+#            cursor = conexao.cursor(as_dict=True)
+#            ajudante = cursor.fetchone()
+#            cursor.close()
+#            conexao.close()
+#
+#            if ajudante:
+#                session['id_ajudante'] = id_ajudante
+#                session['nome_ajudante'] = ajudante['Nome'].title()
+#
                 # Verifica se o ID é de supervisor
-                if id_ajudante.upper() in ['123']:
-                    return redirect(url_for('painel_coordenador'))
-                else:
-                    return redirect(url_for('menub'))
-
-            else:
-                mensagem = 'ID ou Senha incorretos.'
-
-    return render_template('loginb.html', mensagem=mensagem)
-
+#                if id_ajudante.upper() in ['123']:
+#                    return redirect(url_for('painel_coordenador'))
+#                else:
+#                    return redirect(url_for('menub'))
+#
+#            else:
+#                mensagem = 'ID ou Senha incorretos.'
+#
+#    return render_template('loginb.html', mensagem=mensagem)
+#
 @app.route('/menub')
 def menub():
     if 'id_ajudante' not in session:
@@ -431,7 +448,7 @@ def menub():
 @app.route('/painelb')
 def painelb():
     if 'id_ajudante' not in session:
-        return redirect(url_for('loginb'))
+        return redirect(url_for('login'))
 
     id_ajudante = session['id_ajudante']
     mes_selecionado = request.args.get('mes', '')
@@ -617,11 +634,6 @@ def painel_coordenador():
                            lista_ajudantes=lista_ajudantes,
                            media_valor=media_valor,
                            media_meta=media_meta)
-
-@app.route('/logoutb')
-def logoutb():
-    session.clear()
-    return redirect(url_for('loginb'))
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
