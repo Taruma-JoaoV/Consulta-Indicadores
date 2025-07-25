@@ -67,10 +67,9 @@ main {
     box-sizing: border-box;
     padding: 2px;
     margin: 20px 0px;
-    max-width: 95%; /* adiciona limite horizontal */
+    max-width: 95%;
 }
 
-/* ===== Footer ===== */
 footer {
     display: flex;
     flex-direction: column;

@@ -104,6 +104,11 @@ def cinco():
     if login:
         return render_template('cinco.html')
 
+@app.route('/rota')
+def rota():
+    if login:
+        return render_template('rota.html')
+
 @app.route('/painel')
 def painel():
     if 'id_motorista' not in session:

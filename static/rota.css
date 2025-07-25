@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #0b0f17;
+  font-family: Helvetica;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1 {
+  color: #e3f7ff;
+  margin: 10px 0;
+}
+
+header {
+  display: flex;
+  width: 95%;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+a {
+  color: white;
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.4s ease-in-out;
+}
+
+#menu {
+  background-color: #3283a1;
+}
+#menu:hover {
+  background-color: #34a1d1;
+}
+#logout {
+  background-color: #c50000;
+}
+#logout:hover {
+  background-color: #ff5e5e;
+}
+
+main {
+  margin: 20px;
+  padding: 20px;
+  background-color: #0b1b30;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 102, 204);
+  width: 95%;
+  max-width: 1200px;
+}
+
+.painel {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.painel button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #0066cc;
+  border: none;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.painel button.ativo {
+  background-color: #007bff;
+  color: white;
+}
+
+.conteudo {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+}
+
+.conteudo.ativo {
+  max-height: 1200px;
+  padding: 10px;
+}
+
+.conteudo img {
+  width: 100%;
+  max-width: 2000px;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ccc;
+  font-size: small;
+  margin-top: 2em;
+  text-align: center;
+  padding: 1em;
+}
+
+footer img {
+  box-shadow: 0 0 10px rgba(3, 59, 116, 0.7);
+  border-radius: 18px;
+  max-width: 100px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .painel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .painel button {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  .conteudo img {
+    max-width: 100%;
+    height: auto;
+  }
+}

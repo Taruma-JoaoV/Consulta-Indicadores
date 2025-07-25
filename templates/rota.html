@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='rota.css') }}">
+    <title>Rota</title>
+</head>
+
+<body>
+    <header>
+        <h1>Mapeamento de Processos - Rota</h1>
+        <div id='links'>
+            <a id="menu" href="javascript:history.back()">Menu Principal</a>
+            <a id="logout" href="{{ url_for('logout') }}" class="links" id="sair">Sair</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="painel">
+            <button data-id="1">Pré Rota</button>
+            <button data-id="2">Rota</button>
+            <button data-id="3">Pós Rota</button>
+        </div>
+
+        <div id="conteudo-1" class="conteudo">
+            <img src="../static/prerota.png" width="1000" height="1000">
+        </div>
+        <div id="conteudo-2" class="conteudo">
+            <img src="../static/rota.png" width="1000" height="1000">
+        </div>
+        <div id="conteudo-3" class="conteudo">
+            <img src="../static/posrota.png" width="1000" height="1000">
+        </div>
+    </main>
+
+    <footer>
+        <img src="../static/logo.jpg" width="80" height="80">
+        <p>João Vitor Borato - Analista de Rota - Tarumã JF</p>
+        <p>joaov.taruma@gmail.com</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const botoes = document.querySelectorAll('.painel button');
+            const conteudos = document.querySelectorAll('.conteudo');
+
+            botoes.forEach(botao => {
+                botao.addEventListener('click', () => {
+                    const isAtivo = botao.classList.contains('ativo');
+
+                    botoes.forEach(b => b.classList.remove('ativo'));
+                    conteudos.forEach(c => c.classList.remove('ativo'));
+                    if (!isAtivo) {
+                        botao.classList.add('ativo');
+                        const id = botao.getAttribute('data-id');
+                        document.getElementById('conteudo-' + id).classList.add('ativo');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
