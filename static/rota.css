@@ -67,7 +67,7 @@ main {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
 }
 
@@ -109,7 +109,6 @@ main {
 .conteudo img {
   width: 100%;
   max-width: 2000px;
-  height: auto;
   display: block;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);

@@ -8,11 +8,13 @@ app.secret_key = os.getenv('SECRET_KEY', 'chave-padrao-fraca')
 
 def conectar_banco():
     try:
+        conn_str = os.getenv('DATABASE_URL')
+        server, user, password, database = conn_str.split(';')
         conexao = pymssql.connect(
-            server='servidor-indicadores.database.windows.net',
-            user='MasterJoaoVTaruma',
-            password='Analista.27666',
-            database='Indicadores_Funcionarios')
+            server=server,
+            user=user,
+            password=password,
+            database=database)
         return conexao
     except Exception as e:
         print("Erro ao conectar:", e)
@@ -108,6 +110,11 @@ def cinco():
 def rota():
     if login:
         return render_template('rota.html')
+
+@app.route('/lups')
+def lups():
+    if login:
+        return render_template('lups.html')
 
 @app.route('/painel')
 def painel():
