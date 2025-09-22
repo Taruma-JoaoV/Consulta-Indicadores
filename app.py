@@ -115,6 +115,11 @@ def rota():
 def lups():
     if login:
         return render_template('lups.html')
+    
+@app.route('/treinamentos')
+def treinamentos():
+    if login:
+        return render_template('treinamentos.html')
 
 @app.route('/painel')
 def painel():
