@@ -15,8 +15,6 @@ body {
     color: white;
     font-size: 16px;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgb(44 122 255);
-    background-color: #002e57;
 }
 
 #options {
@@ -27,9 +25,13 @@ body {
     align-items: center;
     justify-content: center;
     margin-top: 1em;
-    background-color: #132039;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 102, 204);
+    background-image: 
+        linear-gradient(rgba(0,0,0,1), rgba(0,0,0,0.4)), /* camada de escurecimento */
+        url('caminhao3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 20px rgb(0 37 112);
     box-sizing: border-box;
 }
 #options a {
@@ -51,14 +53,16 @@ body {
     background-color: #3385ff;
 }
 
-#options a:nth-last-child(2), #options a:nth-last-child(3){
-    background: #ff7b34;
+.seguranca {
+    display: none;
+    justify-content: center;
 }
-#options a:nth-last-child(2):hover {
-    background-color: #ffab56;
+
+#options a:nth-last-child(5){
+    background: rgb(221, 123, 11);
 }
-#options a:nth-last-child(3):hover {
-    background-color: #ffab56;
+#options a:nth-last-child(5):hover{
+    background: rgb(255, 156, 43);
 }
 
 #options a:last-child{

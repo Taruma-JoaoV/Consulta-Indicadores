@@ -16,6 +16,7 @@
         <a href="{{ url_for('lups') }}">LUPs</a>
         <a href="{{ url_for('treinamentos') }}">Treinamentos</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3P2RV6dBeCKFod3-n1PhH2V-tIM_UUrQs6Ek69Ku_gCZTGQ/viewform?pli=1">Ouvidoria</a>
+        <a id="botaoseguranca">Segurança</a>
         <a class="seguranca" href="https://docs.google.com/forms/d/e/1FAIpQLSfeD1wtC553dqkhU02-p_lACALHzyc0e06ZMx-OqwXe6tpmvA/viewform">Abono de Registros <br> Telemetria</a>
         <a class="seguranca" href="https://forms.gle/3vQsnXkofN5xPPWi8">Relato de Segurança</a>
         <a class="seguranca" href="https://docs.google.com/forms/u/0/d/1Ko4kIdYErLDQGIXLivds-iCFNUC3fIDFc0FDkGZD0nI/viewform?edit_requested=true">Relato Positivo</a>
@@ -26,5 +27,21 @@
         <p>João Vitor Borato - Analista de Rota - Tarumã JF</p>
         <p>joaov.taruma@gmail.com</p>
     </footer>
+
+    <script>
+        const botao = document.getElementById('botaoseguranca');
+        const segurancaItems = document.querySelectorAll('.seguranca');
+
+        botao.addEventListener('click', function(event) {
+            event.preventDefault();
+            segurancaItems.forEach(item => {
+                if (item.style.display === "none" || item.style.display === "") {
+                    item.style.display = "flex";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    </script>
 </body>
 </html>

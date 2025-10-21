@@ -4,6 +4,12 @@
 
         body {
             background-color: #00010c;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.4)), /* camada de escurecimento */
+                url('caminhao1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: #f1f5f9;
             font-family: Helvetica;
             margin: 0;
