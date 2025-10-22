@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 import pymssql
 import os
-from datetime import datetime
+from datetime import datetime, date
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'chave-padrao-fraca')
@@ -231,7 +231,7 @@ def painel():
                                'Refugo_Porcentagem': media_refugo
                            },
                            prontuario=prontuario,
-                           mes_atual=mes_selecionado or "")
+                           mes_atual=mes_selecionado or date.today().strftime("%Y-%m"))
 
 
 
