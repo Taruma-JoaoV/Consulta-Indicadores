@@ -14,7 +14,8 @@ def conectar_banco():
             server=server,
             user=user,
             password=password,
-            database=database)
+            database=database
+        )
         return conexao
     except Exception as e:
         print("Erro ao conectar:", e)
@@ -201,9 +202,14 @@ def painel():
 
             cursor.execute("SELECT Texto FROM Observacoes WHERE ID_Motorista = %s", (id_motorista,))
             observacoes = [linha['Texto'] for linha in cursor.fetchall()]
+
             cursor.execute("SELECT Prontuario FROM Telemetria WHERE ID_Motorista = %s", (id_motorista,))
             resultado_prontuario = cursor.fetchone()
             prontuario = resultado_prontuario['Prontuario'] if resultado_prontuario else ""
+
+            cursor.execute("SELECT Data FROM GSD WHERE ID_Motorista = %s", (id_motorista))
+            data_gsd = cursor.fetchone()
+            gsd = data_gsd['Data'] if data_gsd else ""
 
 
         except Exception as e:
@@ -231,6 +237,7 @@ def painel():
                                'Refugo_Porcentagem': media_refugo
                            },
                            prontuario=prontuario,
+                           gsd=gsd,
                            mes_atual=mes_selecionado or date.today().strftime("%Y-%m"))
 
 
@@ -352,6 +359,10 @@ def painel_supervisor():
         cursor.execute("SELECT Data, Texto FROM Observacoes WHERE ID_Motorista = %s", (id_selecionado,))
         observacoes = [{'data': linha['Data'], 'texto': linha['Texto']} for linha in cursor.fetchall()]
 
+        cursor.execute("SELECT Data FROM GSD WHERE ID_Motorista = %s", (id_selecionado))
+        data_gsd = cursor.fetchone()
+        gsd = data_gsd['Data'] if data_gsd else ""
+
         cursor.close()
         conexao.close()
 
@@ -383,6 +394,7 @@ def painel_supervisor():
         filtro_mes=filtro_mes,
         id_selecionado=id_selecionado,
         prontuario=prontuario,
+        gsd=gsd,
         observacoes=observacoes
     )
 
