@@ -359,7 +359,7 @@ def painel_supervisor():
         cursor.execute("SELECT Data, Texto FROM Observacoes WHERE ID_Motorista = %s", (id_selecionado,))
         observacoes = [{'data': linha['Data'], 'texto': linha['Texto']} for linha in cursor.fetchall()]
 
-        cursor.execute("SELECT Data FROM GSD WHERE ID_Motorista = %s", (id_selecionado))
+        cursor.execute("SELECT Data FROM GSD WHERE ID_Motorista = %s", (id_selecionado,))
         data_gsd = cursor.fetchone()
         gsd = data_gsd['Data'] if data_gsd else ""
 
