@@ -200,8 +200,9 @@ def painel():
                     'Refugo_Porcentagem': refugo
                 })
 
-            cursor.execute("SELECT Texto FROM Observacoes WHERE ID_Motorista = %s", (id_motorista,))
-            observacoes = [linha['Texto'] for linha in cursor.fetchall()]
+            cursor.execute("SELECT Data, Texto FROM Observacoes WHERE ID_Motorista = %s", (id_motorista,))
+            observacoes = [{'data': linha['Data'], 'texto': linha['Texto']} for linha in cursor.fetchall()]
+
 
             cursor.execute("SELECT Prontuario FROM Telemetria WHERE ID_Motorista = %s", (id_motorista,))
             resultado_prontuario = cursor.fetchone()
@@ -412,7 +413,7 @@ def observacao():
 
     texto = request.form.get('observacao', '').strip()
     id_motorista = session['id_motorista']
-    dia = datetime.now().strftime('%d/%m/%Y %H:%M')
+    dia = datetime.now()
 
     if texto:
         conexao = conectar_banco()

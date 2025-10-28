@@ -19,10 +19,12 @@
 
     <h2>Filtrar Indicadores</h2>
     <div id="filtros">
-        <form method="GET" action="/painel">
+        <form method="GET" action="/painel" onsubmit="mostrarSpinner()">
             <label for="mes">Escolha o mês:</label>
             <input type="month" id="mes" name="mes" value="{{ mes_atual }}">
-            <button type="submit" id="filtroMes">Filtrar</button>
+            <button type="submit" id="filtroMes">
+                <span>Filtrar</span>
+            </button>
         </form>
 
         <div>
@@ -53,7 +55,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for item in dados %}
+            {% for item in dados|reverse %}
                 <tr>
                     <td>{{ item.Data }}</td>
                     <td>{{ item.Devolucao_Porcentagem }}</td>
@@ -105,13 +107,17 @@
         {% if observacoes %}
             <ul>
                 {% for obs in observacoes %}
-                    <li>{{ obs }}</li>
+                    <li>
+                        <strong>{{ obs.data.strftime('%d/%m/%Y') }}:</strong>
+                        {{ obs.texto }}
+                    </li>
                 {% endfor %}
             </ul>
         {% else %}
             <p>Não há observações registradas.</p>
         {% endif %}
     </div>
+
 
     <footer>
         <img src="../static/logo.jpg" width="100" height="100">
@@ -156,6 +162,12 @@
             }
         }
     });
+
+    function mostrarSpinner() {
+        const botao = document.getElementById('filtroMes');
+        botao.disabled = true;
+        botao.innerHTML = `<div class="spinner"></div>`;
+    }
     </script>
 
 </body>

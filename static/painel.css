@@ -35,10 +35,29 @@ p strong {
 #filtroIndicador, #filtroMes {
     padding: 10px;
     border-radius: 5px;
-    background-color: #3283a1;
+    background-color: #0066cc;
     color: #eee;
     border: 1px solid #444;
     margin-right: 10px;
+}
+#filtroMes:hover,
+#filtroIndicador:hover {
+  background-color: #3385ff;
+}
+#filtroMes:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.5s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 table {
@@ -60,7 +79,7 @@ th {
 }
 
 #metas {
-    background-color: #155b94;
+    background-color: #2196f3;
     color: black;
     font-size: large;
 }
@@ -102,7 +121,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 1s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
 }
 
 button:hover {
@@ -158,8 +177,8 @@ button:hover {
 
 .links:hover {
     color: black;
-    box-shadow: -6px 8px 15px 0px rgb(255 0 0);
 }
+
 
 #sair {
     background-color: rgb(255, 61, 61);
@@ -170,7 +189,7 @@ button:hover {
 }
 
 #menu {
-    background-color: #3283a1;
+    background-color: #0066cc;
 }
 
 #filtros {
