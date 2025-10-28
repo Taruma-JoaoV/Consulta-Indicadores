@@ -30,6 +30,11 @@
             font-weight: bold;
         }
 
+        #sancoes td {
+            color: black;
+            font-weight: bold;
+        }
+
         .paginas {
             display: flex;
             align-items: flex-start;
@@ -92,6 +97,21 @@
             line-height: 1.6;
         }
 
+        table {
+            width: max-content;
+            align-self: center;
+        }
+
+        table th {
+            background-color: #00010c;
+        }
+
+        table tbody {
+            color: black;
+            background-color: #c6efce;
+            font-weight: bold;
+        }
+
         .botao-voltar {
             align-self: flex-start;
             background-color: #00ff63;
@@ -147,6 +167,10 @@
                 font-size: 23px;
             }
 
+            table {
+                width: auto;
+            }
+
             .botao-voltar {
                 padding: 8px 16px;
                 font-size: 14px;
@@ -184,6 +208,10 @@
 
             p {
                 font-size: 20px;
+            }
+
+            table {
+                width: auto;
             }
 
             .botao-voltar {
@@ -225,6 +253,13 @@
 
             p {
                 font-size: 20px;
+            }
+
+            #sancoes {
+                font-size: small;
+            }
+            table {
+                width: auto;
             }
 
             .botao-voltar {
