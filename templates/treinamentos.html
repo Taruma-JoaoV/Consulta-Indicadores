@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>5S</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='treinamentos.css') }}">
 </head>
@@ -14,21 +14,58 @@
             <a href="{{ url_for('logout') }}" id="logout">Sair</a>
         </div>
     </header>
+
     <main>
-        <a href="https://forms.gle/2dn9bUiZXJgDUwCx8">Refugo</a>
-        <a href="https://forms.gle/odgLrGkiiAr7u7PJ6">Rating</a>
-        <a href="https://forms.gle/gPYNuWBACmS9bBnb8">BEES</a>
-        <a href="https://forms.gle/q8Evv177SJCJwByS8">Devolução</a>
-        <a href="https://forms.gle/ysuvvDJZ6EkHVorR7">SERVIR</a>
-        <a>Tempos e Movimentos</a>
-        <a href="https://forms.gle/1uWQAESX7nyZsdho8">5S</a>
-        <a>Olho Vivo</a>
+        <a data-img="../static/Trefugo.png" data-link="https://forms.gle/2dn9bUiZXJgDUwCx8">Refugo</a>
+        <a data-img="../static/Trating.png" data-link="https://forms.gle/odgLrGkiiAr7u7PJ6">Rating</a>
+        <a data-img="../static/Tbees.png" data-link="https://forms.gle/gPYNuWBACmS9bBnb8">BEES</a>
+        <a data-img="../static/Tdevolucao.png" data-link="https://forms.gle/q8Evv177SJCJwByS8">Devolução</a>
+        <a data-img="../static/Tservir.png" data-link="https://forms.gle/ysuvvDJZ6EkHVorR7">SERVIR</a>
+        <a data-img="../static/Ttempos.png" data-link="#">Tempos e Movimentos</a>
+        <a data-img="../static/T5s.png" data-link="https://forms.gle/1uWQAESX7nyZsdho8">5S</a>
+        <a data-img="../static/Tolho_vivo.png" data-link="#">Olho Vivo</a>
     </main>
+
     <footer>
         <img src="../static/logo.jpg" width="80" height="80">
         <p>João Vitor Borato - Analista de Rota - Tarumã JF</p>
         <p>joaov.taruma@gmail.com</p>
     </footer>
 
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="Imagem do treinamento">
+            <button id="openLink">Acessar Prova</button>
+        </div>
+    </div>
+
+    <script>
+        const links = document.querySelectorAll('main a');
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const openLinkBtn = document.getElementById('openLink');
+        const closeBtn = document.querySelector('.close');
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                const imgSrc = link.getAttribute('data-img');
+                const externalLink = link.getAttribute('data-link');
+                if (!imgSrc) return;
+
+                modal.style.display = 'flex';
+                modalImg.src = imgSrc;
+                openLinkBtn.onclick = () => {
+                    if (externalLink && externalLink !== "#") {
+                        window.open(externalLink, '_blank');
+                    }
+                };
+            });
+        });
+
+        closeBtn.onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+    </script>
 </body>
 </html>
