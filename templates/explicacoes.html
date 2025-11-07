@@ -10,8 +10,8 @@
     <header>
         <h1>Explicando Indicadores e suas Metas</h1>
         <div class="paginas">
-            <a href="{{ url_for('painel') }}" id="painel">Início</a>
-            <a href="{{ url_for('logout') }}" id="sair">Sair</a>
+            <a href="{{ url_for('motorista.menu') }}" id="painel">Início</a>
+            <a href="{{ url_for('motorista.logout') }}" id="sair">Sair</a>
         </div>
     </header>
     <div class="container">
@@ -170,7 +170,7 @@
     <div class="container2">
         <p>Se tiver dúvidas, sugestões ou contestações, você pode procurar seu supervisor, utilizar o canal de comunicação da empresa,
             ou preencher o campo de <strong>Observações</strong>, disponibilizado no Painel.</p>
-        <a href="/painel" class="botao-voltar">Voltar ao Painel</a>
+        <a href="javascript:history.back()" class="botao-voltar">Voltar ao Painel</a>
     </div>
     <footer>
         <img src="../static/logo.jpg" width="100" height="100">

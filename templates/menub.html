@@ -9,11 +9,11 @@
 <body>
     <p id="nome">🚚 Bom dia, {{ nome }}! 👷</p>
     <div id='options'>
-        <a href="{{ url_for('painelb') }}">Indicadores</a>
-        <a href="{{ url_for('sonho') }}">Sonho</a>
-        <a href="{{ url_for('cinco') }}">5S</a>
+        <a href="{{ url_for('ajudante.painelb') }}">Indicadores</a>
+        <a href="{{ url_for('ajudante.sonho') }}">Sonho</a>
+        <a href="{{ url_for('ajudante.cinco') }}">5S</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3P2RV6dBeCKFod3-n1PhH2V-tIM_UUrQs6Ek69Ku_gCZTGQ/viewform?pli=1">Ouvidoria</a>
-        <a href="{{ url_for('logout') }}" class="links" id="sair">Sair</a>
+        <a href="{{ url_for('ajudante.logout') }}" class="links" id="sair">Sair</a>
     </div>
     <footer>
         <img src="../static/logo.jpg" width="80" height="80">

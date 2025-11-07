@@ -6,22 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='painelb.css') }}">
 </head>
-
 <body>
     <div class="topo">
         <h1>Bem-vindo ao Painel de Indicadores</h1>
         <div class="links-wrapper">
-            <a href="{{ url_for('menub') }}" class="links" id="menu">Menu Principal</a>
-            <a href="{{ url_for('logout') }}" class="links" id="sair">Sair</a>
+            <a href="{{ url_for('ajudante.menub') }}" class="links" id="menu">Menu Principal</a>
+            <a href="{{ url_for('ajudante.logout') }}" class="links" id="sair">Sair</a>
         </div>
     </div>
 
     <h2>Filtrar Período Mensal</h2>
     <div id="filtros">
-        <form method="GET" action="/painelb">
+        <form method="GET" action="{{ url_for('ajudante.painelb') }}">
             <label for="mes">Escolha o mês:</label>
             <input type="month" id="mes" name="mes" value="{{ mes_atual }}">
-            <button id="busca" type="submit" id="filtroMes">Buscar</button>
+            <button type="submit">Buscar</button>
         </form>
     </div>
 
@@ -35,7 +34,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for item in dados %}
+            {% for item in dados|reverse %}
                 <tr>
                     <td>{{ item.data }}</td>
                     <td>{{ item.valor }}</td>
