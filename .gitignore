@@ -11,3 +11,5 @@ Thumbs.db
 # Flask / env
 instance/
 .env
+
+config.py
