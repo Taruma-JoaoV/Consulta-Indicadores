@@ -1,5 +1,6 @@
 import pymssql
 from config import DB_CONFIG
+import os
 
 def conectar_banco():
     try:
