@@ -1,7 +1,7 @@
 # models/database.py
 import os
 import pymssql
-from config import DB_CONFIG  # Apenas para ambiente local
+
 
 def conectar_banco():
     """
