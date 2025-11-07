@@ -3,13 +3,14 @@ from config import DB_CONFIG
 
 def conectar_banco():
     try:
+        conn_str = os.getenv('DATABASE_URL')
+        server, user, password, database = conn_str.split(';')
         conexao = pymssql.connect(
-            server=DB_CONFIG['server'],
-            user=DB_CONFIG['user'],
-            password=DB_CONFIG['password'],
-            database=DB_CONFIG['database']
+            server=server,
+            user=user,
+            password=password,
+            database=database
         )
-        return conexao
     except Exception as e:
         print("Erro ao conectar:", e)
         return None
