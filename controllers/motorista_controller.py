@@ -100,6 +100,19 @@ def painel():
             data_gsd = cursor.fetchone()
             gsd = data_gsd['Data'] if data_gsd else ""
 
+            # DIESEL
+            cursor.execute("""
+                SELECT Media, Meta, Periodo
+                FROM Diesel
+                WHERE ID_Motorista = %s
+            """, (id_motorista,))
+
+            dados_diesel = cursor.fetchone()
+
+            media = dados_diesel['Media'] if dados_diesel else ""
+            meta = dados_diesel['Meta'] if dados_diesel else ""
+            periodo = dados_diesel['Periodo'] if dados_diesel else ""
+
         except Exception as e:
             print("Erro ao consultar o banco:", e)
         finally:
@@ -129,7 +142,10 @@ def painel():
                            },
                            prontuario=prontuario,
                            gsd=gsd,
-                           mes_atual=mes_selecionado or date.today().strftime("%Y-%m")
+                           mes_atual=mes_selecionado or date.today().strftime("%Y-%m"),
+                           media=media,
+                           meta=meta,
+                           periodo=periodo
                            )
 
 
