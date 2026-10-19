@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sonho</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sonho.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Sonho</h1>
+        <div id='links'>
+            <a id="menu" href="javascript:history.back()">Menu Principal</a>
+            <a id="logout" href="{{ url_for('motorista.logout') }}" class="links" id="sair">Sair</a>
+        </div>
+    </header>
+
+    <main>
+        <img src="../static/sonho.jpeg" width="1000" height="1000">
+    </main>
+
+    <footer>
+        <img src="../static/logo.jpg" width="80" height="80">
+        <p>João Vitor Borato - Analista de Rota - Tarumã JF</p>
+        <p>joaovnogueirabr@gmail.com</p>
+        <p>rota@tarumajf.com.br</p>
+    </footer>
+</body>
+</html>

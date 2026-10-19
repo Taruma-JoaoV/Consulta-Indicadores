@@ -189,6 +189,13 @@ def sonho():
         return redirect(url_for('login.login'))
     return render_template('sonho.html')
 
+# ---------- ROTAS RECONHECIMENTO DO MENU ----------
+@motorista_bp.route('/reconhecimento')
+def reconhecimento():
+    if 'id_motorista' not in session:
+        return redirect(url_for('login.login'))
+    return render_template('reconhecimento.html')
+
 
 @motorista_bp.route('/cinco')
 def cinco():
